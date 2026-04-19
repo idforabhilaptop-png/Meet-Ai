@@ -21,7 +21,7 @@ const formSchema = z.object({
     password: z.string().min(1, { message: "Password is Required" }),
     confirmPassword: z.string().min(1, { message: "Password is Required" }),
 }).refine((data) => data.password === data.confirmPassword, {
-    message: "Password dont,t match",
+    message: "Password don't match",
     path: ["confirmPassword"]
 })
 
@@ -57,6 +57,7 @@ export const SignupView = () => {
                 },
                 onError: (ctx) => {
                     setError(ctx.error.message)
+                    setPending(false)
                 }
             }
         )
@@ -67,7 +68,7 @@ export const SignupView = () => {
             <Card className="overflow-hidden p-0">
                 <CardContent className="grid p-0 md:grid-cols-2">
                     <Form {...form}>
-                        <form onSubmit={form.handleSubmit(onSubmit)} className="p-6 m:p-8">
+                        <form onSubmit={form.handleSubmit(onSubmit)} className="p-6 md:p-8">
                             <div className="flex flex-col gap-6">
                                 <div className="flex flex-col items-center text-center">
                                     <h1 className="text-2xl font-bold">
