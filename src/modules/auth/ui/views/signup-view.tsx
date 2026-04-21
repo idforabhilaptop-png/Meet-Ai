@@ -195,10 +195,12 @@ export const SignupView = () => {
 
                                 <div className="grid grid-cols-2 gap-4">
                                     <Button disabled={pending} type="button" variant={"outline"} className="w-full"
+                                        aria-label="Sign in with Google"
                                         onClick={() => onSocials("google")}>
                                         <FaGoogle />
                                     </Button>
                                     <Button disabled={pending} type="button" variant={"outline"} className="w-full"
+                                        aria-label="Sign in with Github"
                                         onClick={() => onSocials("github")}>
                                         <FaGithub />
                                     </Button>
