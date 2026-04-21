@@ -1,8 +1,18 @@
+import { auth } from "@/lib/auth";
+import { HomeView } from "@/modules/home/ui/views/home-view";
+import { headers } from "next/headers";
+import { redirect } from "next/navigation";
 
-export default function Home() {
+export default async function Page() {
+  const session = await auth.api.getSession({
+    headers : await headers()
+  })
+  if(!session){
+    redirect("/signin")
+  }
   return (
    <>
-   
+   <HomeView/>
    </>
   );
 }
